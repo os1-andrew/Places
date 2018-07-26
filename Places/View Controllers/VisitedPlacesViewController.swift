@@ -8,28 +8,33 @@
 
 import UIKit
 
-class VisitedPlacesViewController: UIViewController {
+class VisitedPlacesViewController: UIViewController, PlacesPresenter, PlacesTableViewControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    // MARK - PlacesTableViewControllerDelegate
+    func placeWasSelected(place: Place) {
+        mapViewController.location = place.location
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //We are using an embed segue which is still a segue! Gives us a chance to get properties from orginal VC and use
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        //sets VC depending on where we are going, i.e. which segue is used
+        if let tableVC = segue.destination as? PlacesTableViewController{
+            placesTableViewController = tableVC
+            placesTableViewController.placeController = placeController //passes down to its child
+            placesTableViewController.delegate = self
+        }
+        
+        if let mapVC = segue.destination as? MapViewController {
+            mapViewController = mapVC
+        }
     }
-    */
+    
+    var placeController: PlaceController?
+    var mapViewController: MapViewController! //They are optional but we don't have to unrwap to use. However, if value is nil then the app will crash. This is on purpose since it means that the crash apped becasue something went wrong
+    var placesTableViewController: PlacesTableViewController!
+ 
 
 }

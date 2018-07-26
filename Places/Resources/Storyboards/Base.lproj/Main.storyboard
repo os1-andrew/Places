@@ -17,14 +17,56 @@
                     <view key="view" contentMode="scaleToFill" id="YPw-pU-Vcz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bzF-Wp-wbM">
+                                <rect key="frame" x="0.0" y="258.5" width="375" height="150"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcv-ia-u6Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude from -90 to 90" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-Jn-OFt">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude from -180 to 180" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I6v-LG-Wbn">
+                                        <rect key="frame" x="0.0" y="80" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06l-Zb-Bjb">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="30"/>
+                                        <state key="normal" title="Save Place"/>
+                                        <connections>
+                                            <action selector="createNewPlace:" destination="cHR-aD-zKk" eventType="touchUpInside" id="peY-72-ycG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cep-E9-4ST" firstAttribute="trailing" secondItem="bzF-Wp-wbM" secondAttribute="trailing" id="Fk8-SB-0YH"/>
+                            <constraint firstItem="bzF-Wp-wbM" firstAttribute="leading" secondItem="Cep-E9-4ST" secondAttribute="leading" id="m2P-lj-SaG"/>
+                            <constraint firstItem="bzF-Wp-wbM" firstAttribute="centerY" secondItem="YPw-pU-Vcz" secondAttribute="centerY" id="qET-1p-t4w"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Cep-E9-4ST"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Create Place" image="Plus" id="ta1-CA-HW0"/>
+                    <connections>
+                        <outlet property="latitudeTextField" destination="ICm-Jn-OFt" id="eth-K0-iIj"/>
+                        <outlet property="longitudeTextField" destination="I6v-LG-Wbn" id="ujd-5z-isd"/>
+                        <outlet property="nameTextField" destination="kcv-ia-u6Q" id="HJ8-8T-X85"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSN-tK-1ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="300"/>
+            <point key="canvasLocation" x="653.60000000000002" y="300"/>
         </scene>
         <!--Places-->
         <scene sceneID="rzH-GW-97x">
@@ -76,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="1219" y="-168"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Places Tab Bar View Controller-->
         <scene sceneID="Qa9-yS-53T">
             <objects>
-                <tabBarController id="V5M-QF-hXA" sceneMemberID="viewController">
+                <tabBarController id="V5M-QF-hXA" customClass="PlacesTabBarViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E6y-ky-Jbk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
