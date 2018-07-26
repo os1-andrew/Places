@@ -1,11 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V5M-QF-hXA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Create Place-->
+        <scene sceneID="p9i-6g-u3R">
+            <objects>
+                <viewController id="cHR-aD-zKk" customClass="CreateNewPlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YPw-pU-Vcz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Cep-E9-4ST"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Create Place" image="Plus" id="ta1-CA-HW0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSN-tK-1ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="655" y="300"/>
+        </scene>
+        <!--Places-->
+        <scene sceneID="rzH-GW-97x">
+            <objects>
+                <viewController id="DHi-vX-kwf" customClass="VisitedPlacesViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eia-cg-Jvi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdK-KE-u7v">
+                                <rect key="frame" x="0.0" y="20" width="375" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="x9w-up-lf5"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="sTT-Gh-9BF" kind="embed" identifier="EmbedMapView" id="qLG-jE-cCB"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-5p-A5n">
+                                <rect key="frame" x="0.0" y="258" width="375" height="360"/>
+                                <connections>
+                                    <segue destination="S7d-jM-2Zs" kind="embed" identifier="EmbedPlacesTable" id="gZh-9T-1eg"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VdK-KE-u7v" firstAttribute="top" secondItem="E9D-6A-FkY" secondAttribute="top" id="ERZ-H6-7QQ"/>
+                            <constraint firstItem="OJF-5p-A5n" firstAttribute="top" secondItem="VdK-KE-u7v" secondAttribute="bottom" constant="8" id="Luh-zv-zWQ"/>
+                            <constraint firstItem="OJF-5p-A5n" firstAttribute="trailing" secondItem="E9D-6A-FkY" secondAttribute="trailing" id="POr-8C-UH0"/>
+                            <constraint firstItem="OJF-5p-A5n" firstAttribute="leading" secondItem="E9D-6A-FkY" secondAttribute="leading" id="WBq-vD-eaH"/>
+                            <constraint firstItem="OJF-5p-A5n" firstAttribute="bottom" secondItem="E9D-6A-FkY" secondAttribute="bottom" id="Zwg-5L-AUW"/>
+                            <constraint firstItem="VdK-KE-u7v" firstAttribute="trailing" secondItem="E9D-6A-FkY" secondAttribute="trailing" id="aGK-9s-GfZ"/>
+                            <constraint firstItem="VdK-KE-u7v" firstAttribute="leading" secondItem="E9D-6A-FkY" secondAttribute="leading" id="crk-jj-Z2J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E9D-6A-FkY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Places" image="Globe" id="XYe-jT-Kuo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHN-5W-mtz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653.60000000000002" y="-365.66716641679164"/>
+        </scene>
+        <!--PlacesTable-->
+        <scene sceneID="lz9-19-Ljg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PlacesTable" id="S7d-jM-2Zs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ykO-qH-5ig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1219" y="-168"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Qa9-yS-53T">
+            <objects>
+                <tabBarController id="V5M-QF-hXA" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E6y-ky-Jbk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="DHi-vX-kwf" kind="relationship" relationship="viewControllers" id="w2d-a0-fTi"/>
+                        <segue destination="cHR-aD-zKk" kind="relationship" relationship="viewControllers" id="Iby-8o-PjU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u55-0h-XdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-297" y="-33"/>
+        </scene>
+        <!--MapView-->
+        <scene sceneID="jMC-dU-MNs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MapView" id="sTT-Gh-9BF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPs-dH-6Go" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="-692"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Globe" width="23" height="23"/>
+        <image name="Plus" width="21" height="21"/>
+    </resources>
 </document>
